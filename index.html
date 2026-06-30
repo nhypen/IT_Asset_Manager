@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IT Asset Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h1>IT Asset Manager</h1>
+      <p>Company equipment and user role management system.</p>
+
+      <nav>
+        <button class="tab-btn active" data-tab="dashboard">Dashboard</button>
+        <button class="tab-btn" data-tab="assets">Assets</button>
+        <button class="tab-btn" data-tab="users">Users</button>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <section id="dashboard" class="tab-content active">
+        <h2>Dashboard</h2>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span>Total Assets</span>
+            <strong id="totalAssets">0</strong>
+          </div>
+          <div class="stat-card">
+            <span>Available</span>
+            <strong id="availableAssets">0</strong>
+          </div>
+          <div class="stat-card">
+            <span>Assigned</span>
+            <strong id="assignedAssets">0</strong>
+          </div>
+          <div class="stat-card">
+            <span>Users</span>
+            <strong id="totalUsers">0</strong>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>All Company Equipment</h3>
+          <div id="dashboardAssets" class="mini-list"></div>
+        </div>
+      </section>
+
+      <section id="assets" class="tab-content">
+        <div class="section-header">
+          <h2>Assets</h2>
+          <input type="text" id="assetSearch" placeholder="Search assets..." />
+        </div>
+
+        <form id="assetForm" class="form-grid">
+          <input type="text" id="assetName" placeholder="Asset name" required />
+          <input type="text" id="serialNumber" placeholder="Serial number" required />
+
+          <select id="assetType" required>
+            <option value="Laptop">Laptop</option>
+            <option value="Monitor">Monitor</option>
+            <option value="Phone">Phone</option>
+            <option value="Printer">Printer</option>
+            <option value="Server">Server</option>
+            <option value="Network Device">Network Device</option>
+          </select>
+
+          <select id="assetStatus" required>
+            <option value="Available">Available</option>
+            <option value="Assigned">Assigned</option>
+            <option value="Repair">Repair</option>
+            <option value="Retired">Retired</option>
+          </select>
+
+          <input type="text" id="assetLocation" placeholder="Location" required />
+
+          <select id="assignedTo">
+            <option value="">Not assigned</option>
+          </select>
+
+          <button type="submit">Add Asset</button>
+        </form>
+
+        <div id="assetList" class="cards-list"></div>
+      </section>
+
+      <section id="users" class="tab-content">
+        <div class="section-header">
+          <h2>Users</h2>
+          <input type="text" id="userSearch" placeholder="Search users..." />
+        </div>
+
+        <form id="userForm" class="form-grid">
+          <input type="text" id="userName" placeholder="Full name" required />
+          <input type="email" id="userEmail" placeholder="Email" required />
+
+          <select id="userRole" required>
+            <option value="Employee">Employee</option>
+            <option value="IT Support">IT Support</option>
+            <option value="Linux Admin">Linux Admin</option>
+            <option value="Windows Admin">Windows Admin</option>
+            <option value="Network Admin">Network Admin</option>
+            <option value="Security Admin">Security Admin</option>
+          </select>
+
+          <input type="text" id="userDepartment" placeholder="Department" required />
+
+          <button type="submit">Add User</button>
+        </form>
+
+        <div id="userList" class="cards-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
